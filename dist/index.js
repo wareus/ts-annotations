@@ -4,14 +4,14 @@ var Annotations = /** @class */ (function () {
     function Annotations() {
     }
     Annotations.registerClass = function (clazz, annotation) {
-        if (Annotations.annotaions.get(annotation) === undefined)
-            Annotations.annotaions.set(annotation, new Set());
-        Annotations.annotaions.get(annotation).add(clazz);
+        if (Annotations.classes.get(clazz) === undefined)
+            Annotations.classes.set(clazz, new Set());
+        Annotations.classes.get(clazz).add(annotation);
     };
-    Annotations.get = function (annotaion) {
-        return Annotations.annotaions.get(annotaion);
+    Annotations.get = function (clazz) {
+        return Annotations.classes.get(clazz);
     };
-    Annotations.annotaions = new Map();
+    Annotations.classes = new Map();
     return Annotations;
 }());
 exports.default = Annotations;

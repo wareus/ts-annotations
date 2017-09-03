@@ -11,7 +11,6 @@ function First(target: any)
 }
 
 @First
-
 class Example
 {
 

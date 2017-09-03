@@ -1,16 +1,16 @@
 export default class Annotations
 {
-    static annotaions:Map<string,Set<string>> = new Map<string,Set<string>>();
+    static classes:Map<string,Set<string>> = new Map<string,Set<string>>();
 
     static registerClass(clazz:string, annotation:string)
     {
-        if(Annotations.annotaions.get(annotation) === undefined)
-            Annotations.annotaions.set(annotation,new Set<string>());
-        Annotations.annotaions.get(annotation).add(clazz);
+        if(Annotations.classes.get(clazz) === undefined)
+            Annotations.classes.set(clazz,new Set<string>());
+        Annotations.classes.get(clazz).add(annotation);
     }
 
-    static get(annotaion:string):Set<string>
+    static get(clazz:string):Set<string>
     {
-        return Annotations.annotaions.get(annotaion);
+        return Annotations.classes.get(clazz);
     }
 }
