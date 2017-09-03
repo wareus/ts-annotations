@@ -21,7 +21,7 @@ class Example
 }
 
 
-console.log(Annotations.annotaions);
+console.log(Annotations.get("First").keys());
 
 
 

@@ -9,8 +9,8 @@ export default class Annotations
         Annotations.annotaions.get(annotation).add(clazz);
     }
 
-    static get(clazz:string):Set<string>
+    static get(annotaion:string):Set<string>
     {
-        return Annotations.annotaions.get(clazz);
+        return Annotations.annotaions.get(annotaion);
     }
 }
