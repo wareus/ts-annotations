@@ -1,0 +1,36 @@
+{
+  "name": "ts-annotations",
+  "version": "1.0.0",
+  "description": "Simmulate annotations in typescript",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/example/example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wareus/ts-annotations.git"
+  },
+  "keywords": [
+    "ts",
+    "typescript",
+    "annotation"
+  ],
+  "author": "Wareus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wareus/ts-annotations/issues"
+  },
+  "homepage": "https://github.com/wareus/ts-annotations#readme",
+  "devDependencies": {
+    "@types/jasmine": "^2.5.54",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-webpack": "^2.0.4",
+    "ts-loader": "^2.3.4",
+    "typescript": "^2.5.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  }
+}

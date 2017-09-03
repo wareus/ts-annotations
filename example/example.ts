@@ -1,6 +1,7 @@
-# ts-annotations
 
-```
+import Annotations from "../index";
+
+
 function First(target: any)
 {
     Annotations.registerClass(target.name, "First");
@@ -21,4 +22,7 @@ class Example
 
 
 console.log(Annotations.annotaions);
-```
+
+
+
+
