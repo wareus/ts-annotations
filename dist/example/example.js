@@ -10,14 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("../index");
-function First(target) {
-    index_1.default.registerClass(target.name, "First");
+function First(test) {
+    return function (target) {
+        index_1.default.registerClass(target.name, "First", test);
+    };
 }
 function Second(target) {
-    index_1.default.registerClass(target.name, "Second");
+    index_1.default.registerClass(target.name, "Second", null);
 }
-function Property(target, key) {
-    index_1.default.registerProperty(target.constructor.name, key, "Property");
+function Property(test) {
+    return function (target, key) {
+        index_1.default.registerProperty(target.constructor.name, key, "Property", test);
+    };
 }
 var Example = /** @class */ (function () {
     function Example() {
@@ -25,17 +29,17 @@ var Example = /** @class */ (function () {
     Example.prototype.run = function () {
     };
     __decorate([
-        Property,
+        Property("test"),
         __metadata("design:type", String)
     ], Example.prototype, "name", void 0);
     __decorate([
-        Property,
+        Property("this run"),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", []),
         __metadata("design:returntype", void 0)
     ], Example.prototype, "run", null);
     Example = __decorate([
-        First,
+        First("test"),
         Second
     ], Example);
     return Example;

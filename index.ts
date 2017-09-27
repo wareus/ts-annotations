@@ -2,20 +2,20 @@ export default class Annotations
 {
     static classes:Map<string,Data> = new Map<string,Data>();
 
-    static registerClass(clazz:string, annotation:string)
+    static registerClass(clazz:string, annotation:string, data:any)
     {
         Annotations.init(clazz);
-        Annotations.classes.get(clazz).classAnnotations.add(annotation);
+        Annotations.classes.get(clazz).classAnnotations.set(annotation,data);
     }
 
-    static registerProperty(clazz:string, property:string, annotation:string)
+    static registerProperty(clazz:string, property:string, annotation:string, data:any)
     {
         Annotations.init(clazz);
-        let propertyData:Map<string,Set<string>> = Annotations.classes.get(clazz).propertyAnnotations;
+        let propertyData:Map<string,Map<string,any>> = Annotations.classes.get(clazz).propertyAnnotations;
 
         if(propertyData.get(property)===undefined)
-            propertyData.set(property, new Set<string>());
-        propertyData.get(property).add(annotation);
+            propertyData.set(property, new Map<string,any>());
+        propertyData.get(property).set(annotation, data);
 
     }
 
@@ -33,7 +33,7 @@ export default class Annotations
 
 class Data
 {
-    classAnnotations:Set<string> = new Set<string>();
-    propertyAnnotations:Map<string,Set<string>> = new Map<string,Set<string>>();
+    classAnnotations:Map<string,any> = new Map<string,any>();
+    propertyAnnotations:Map<string,Map<string,any>> = new Map<string,Map<string,any>>();
 
 }

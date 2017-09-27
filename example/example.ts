@@ -1,31 +1,37 @@
 
 import Annotations from "../index";
 
-
-function First(target: any)
+function First(test:string)
 {
-    Annotations.registerClass(target.name, "First");
+    return function (target: any)
+    {
+        Annotations.registerClass(target.name, "First", test);
+    }
 }
 
 
 function Second(target: any)
 {
-    Annotations.registerClass(target.name, "Second");
+    Annotations.registerClass(target.name, "Second", null);
 }
 
-function Property(target:any, key:string)
+function Property(test:string)
 {
-    Annotations.registerProperty(target.constructor.name,key,"Property")
+   return function (target:any, key:string)
+   {
+       Annotations.registerProperty(target.constructor.name,key,"Property",test);
+   }
 }
 
-@First
+
+@First("test")
 @Second
 class Example
 {
-    @Property
+    @Property("test")
     name:string;
 
-    @Property
+    @Property("this run")
     run()
     {
 
